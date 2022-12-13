@@ -1,8 +1,9 @@
-// SPDX-License-Identifier: SEE LICENSE IN LICENSE
+// SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0;
 
-library VestaMath {
-    uint256 internal constant DECIMAL_PRECISION = 1 ether;
+library Math {
+    uint256 constant WAD = 10 ** 18;
+    uint256 constant RAY = 10 ** 27;
 
     function min(uint256 _a, uint256 _b) internal pure returns (uint256) {
         return (_a < _b) ? _a : _b;
@@ -10,17 +11,6 @@ library VestaMath {
 
     function max(uint256 _a, uint256 _b) internal pure returns (uint256) {
         return (_a >= _b) ? _a : _b;
-    }
-
-    /*
-    * Multiply two decimal numbers and use normal rounding rules:
-    * -round product up if 19'th mantissa digit >= 5
-    * -round product down if 19'th mantissa digit < 5
-    *
-    * Used only inside the exponentiation, decPow().
-    */
-    function decMul(uint256 x, uint256 y) internal pure returns (uint256 decProd) {
-        return ((x * y) + (DECIMAL_PRECISION / 2)) / (DECIMAL_PRECISION);
     }
 
     function getAbsoluteDifference(uint256 _a, uint256 _b)
@@ -150,5 +140,33 @@ library VestaMath {
                 result++;
             }
         }
+    }
+
+    function divup(uint256 x, uint256 y) internal pure returns (uint256 z) {
+        z = (x + (y - 1)) / y;
+    }
+
+    function wmul(uint256 x, uint256 y) internal pure returns (uint256 z) {
+        z = (x * y) / WAD;
+    }
+
+    function wdiv(uint256 x, uint256 y) internal pure returns (uint256 z) {
+        z = (x * WAD) / y;
+    }
+
+    function wdivup(uint256 x, uint256 y) internal pure returns (uint256 z) {
+        z = divup((x * WAD), y);
+    }
+
+    function rmul(uint256 x, uint256 y) internal pure returns (uint256 z) {
+        z = (x * y) / RAY;
+    }
+
+    function rmulup(uint256 x, uint256 y) internal pure returns (uint256 z) {
+        z = divup((x * y), RAY);
+    }
+
+    function rdiv(uint256 x, uint256 y) internal pure returns (uint256 z) {
+        z = mulDiv(x, RAY, y);
     }
 }
