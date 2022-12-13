@@ -4,7 +4,7 @@
 
 FORK_MAINNET_RPC =  --fork-url https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161
 HARDHAT_COMPILE = npx hardhat compile
-FORGE_CLEAN = forge clean
+FORGE_CLEAN = forge clean && forge fmt
 
 # How to use $(EXTRA) or $(NETWORK)
 # define it with your command. 
