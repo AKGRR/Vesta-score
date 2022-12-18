@@ -17,9 +17,11 @@ import "./vendor/OwnableUpgradeable.sol";
  */
 
 abstract contract BaseVesta is IBaseVesta, OwnableUpgradeable {
-    address internal SELF;
     address internal constant RESERVED_ETH_ADDRESS = address(0);
     uint256 internal constant MAX_UINT256 = type(uint256).max;
+    uint256 internal constant DECIMAL_PRECISION = 1e18;
+    address internal SELF;
+
     bool private reentrencyStatus;
 
     mapping(address => bytes1) internal permissions;
