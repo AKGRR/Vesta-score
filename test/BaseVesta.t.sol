@@ -3,7 +3,7 @@ pragma solidity ^0.8.7;
 
 import { BaseTest, console } from "./base/BaseTest.t.sol";
 
-import "../main/BaseVesta.sol";
+import "../src/BaseVesta.sol";
 
 contract BaseVestaTest is BaseTest {
     address private owner = generateAddress("Owner", false);

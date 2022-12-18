@@ -1,25 +1,11 @@
 [profile.default]
-src = 'src'
-test = 'src/test'
-out = 'out'
-libs = ['lib']
-
+fs_permissions = [{ access = "read-write", path = "./"}]
 
 [fmt]
-# Maximum line length where formatter will try to wrap the line
 line_length = 90
-# Number of spaces per indentation level
 tab_width = 4
-# Print spaces between brackets
 bracket_spacing = true
-# Style of uint/int256 types
 int_types = "long"
-# If function parameters are multiline then always put the function attributes on separate lines
 func_attrs_with_params_multiline = true
-# Style of quotation marks
 quote_style = "double"
-# Style of underscores in number literals
 number_underscore = "thousands"
-
-
-# See more config options https://github.com/foundry-rs/foundry/tree/master/config

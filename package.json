@@ -1,0 +1,16 @@
+{
+  "name": "vesta-core",
+  "version": "0.1.0",
+  "description": "Vesta Standard Library",
+  "homepage": "https://vestafinance.xyz/",
+  "bugs": "https://github.com/vesta-finance/vesta-core/issues",
+  "license": "(Apache-2.0 OR MIT)",
+  "author": "Vesta Finance Team",
+  "files": [
+    "src/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vesta-finance/vesta-core.git"
+  }
+}

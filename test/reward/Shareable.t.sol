@@ -3,8 +3,8 @@
 pragma solidity ^0.8.17;
 
 import "../base/BaseTest.t.sol";
-import { Shareable, Math } from "../../main/reward/Shareable.sol";
-import { TokenTransferrer } from "../../main/token/TokenTransferrer.sol";
+import { Shareable, Math } from "../../src/reward/Shareable.sol";
+import { TokenTransferrer } from "../../src/token/TokenTransferrer.sol";
 
 import { MockERC20 } from "../mock/MockERC20.sol";
 

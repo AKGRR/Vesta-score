@@ -5,7 +5,7 @@ import "forge-std/Test.sol";
 import "forge-std/Vm.sol";
 import "forge-std/console.sol";
 
-import { TokenTransferrer } from "../../main/token/TokenTransferrer.sol";
+import { TokenTransferrer } from "../../src/token/TokenTransferrer.sol";
 
 contract BaseTest is Test, TokenTransferrer {
     address internal constant RESERVED_ETH_ADDRESS = address(0);
