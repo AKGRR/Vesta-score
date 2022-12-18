@@ -8,7 +8,7 @@ interface IBaseVesta {
     error CannotBeNativeChainToken();
     error InvalidContract();
     error NumberIsZero();
-    error SanitizeMsgValueFailed(address _token, uint256 _paramValue, uint256 _msgValue);
+    error SanitizeMsgValueFailed();
 
     event PermissionChanged(address indexed _address, bytes1 newPermission);
 

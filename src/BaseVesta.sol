@@ -117,7 +117,7 @@ abstract contract BaseVesta is IBaseVesta, OwnableUpgradeable {
      * @notice _sanitizeMsgValueWithParam is for multi-token payable function.
      * 	@dev msg.value should be set to zero if the token used isn't a native token.
      * 		address(0) is reserved for Native Chain Token.
-     * 		if fails, it will reverts with SanitizeMsgValueFailed(address _token, uint256 _paramValue, uint256 _msgValue).
+     * 		if fails, it will reverts with SanitizeMsgValueFailed
      * 	@return sanitizeValue which is the sanitize value you should use in your code.
      */
     function _sanitizeMsgValueWithParam(address _token, uint256 _paramValue)
@@ -131,7 +131,7 @@ abstract contract BaseVesta is IBaseVesta, OwnableUpgradeable {
             return _paramValue;
         }
 
-        revert SanitizeMsgValueFailed(_token, _paramValue, msg.value);
+        revert SanitizeMsgValueFailed();
     }
 
     function isContract(address _address) internal view returns (bool) {
