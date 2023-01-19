@@ -37,7 +37,7 @@ contract BaseTest is Test, TokenTransferrer {
     bytes internal constant ERROR_NUMBER_ZERO = abi.encodeWithSignature("NumberIsZero()");
 
     string internal constant ERROR_SANITIZE_MSG_VALUE_FAILED_SIGNATURE =
-        "SanitizeMsgValueFailed(address,uint256,uint256)";
+        "SanitizeMsgValueFailed()";
 
     bytes internal constant ERROR_NOT_ZERO = abi.encodeWithSignature("NumberIsZero()");
 

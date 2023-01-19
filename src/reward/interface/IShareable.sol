@@ -6,5 +6,9 @@ interface IShareable {
     event Flee();
     event Tack(address indexed src, address indexed dst, uint256 wad);
 
+    function netAssetsPerShareWAD() external view returns (uint256);
+
+    function getCropsOf(address _target) external view returns (uint256);
+
     function getShareOf(address owner) external view returns (uint256);
 }

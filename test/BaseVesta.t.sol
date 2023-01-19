@@ -136,9 +136,7 @@ contract BaseVestaTest is BaseTest {
         address token = address(0x123);
 
         vm.expectRevert(
-            abi.encodeWithSignature(
-                ERROR_SANITIZE_MSG_VALUE_FAILED_SIGNATURE, token, paramValue, msgValue
-            )
+            abi.encodeWithSignature(ERROR_SANITIZE_MSG_VALUE_FAILED_SIGNATURE)
         );
 
         underTest.sanitizeMsgValueTest{value: msgValue}(token, paramValue);

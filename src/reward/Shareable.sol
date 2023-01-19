@@ -5,7 +5,7 @@ import { IShareable } from "./interface/IShareable.sol";
 import { Math } from "../math/Math.sol";
 
 /**
- * You can seek the src/test/reward/Shareable.t.sol file to have an example of how to use it.
+ * You can seek the test/reward/Shareable.t.sol file to have an example of how to use it.
  */
 abstract contract Shareable is IShareable {
     uint256 public share; // crops per gem    [ray]
@@ -53,11 +53,11 @@ abstract contract Shareable is IShareable {
         emit ShareUpdated(value);
     }
 
-    function netAssetsPerShareWAD() public view returns (uint256) {
+    function netAssetsPerShareWAD() public view override returns (uint256) {
         return (totalWeight == 0) ? Math.WAD : Math.wdiv(totalWeight, totalWeight);
     }
 
-    function getCropsOf(address _target) external view returns (uint256) {
+    function getCropsOf(address _target) external view override returns (uint256) {
         return crops[_target];
     }
 
