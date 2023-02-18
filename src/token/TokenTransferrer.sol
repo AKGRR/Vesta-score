@@ -17,13 +17,11 @@ abstract contract TokenTransferrer is TokenTransferrerErrors {
         address to,
         uint256 amount,
         bool sendCallback
-    ) internal {
+    ) internal returns (bool) {
         if (token == address(0)) {
             (bool success,) = to.call{value: amount}(new bytes(0));
 
-            if (!success) revert ErrorTransferETH(address(this), token, amount);
-
-            return;
+            return success;
         }
 
         address from = address(this);
@@ -182,6 +180,7 @@ abstract contract TokenTransferrer is TokenTransferrerErrors {
         }
 
         _tryPerformCallback(token, to, amount, sendCallback);
+        return true;
     }
 
     function _performTokenTransferFrom(
